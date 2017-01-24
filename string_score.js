@@ -19,11 +19,11 @@
  *    'Hello World'.score('he');         //=> 0.5931818181818181
  *    'Hello World'.score('Hello');    //=> 0.7318181818181818
  */
-String.prototype.score = function (word, fuzziness) {
+module.exports = function (string, word, fuzziness) {
   'use strict';
 
   // If the string is equal to the word, perfect match.
-  if (this === word) { return 1; }
+  if (string === word) { return 1; }
 
   //if it's not a perfect match and is empty return 0
   if (word === "") { return 0; }
@@ -31,7 +31,6 @@ String.prototype.score = function (word, fuzziness) {
   var runningScore = 0,
       charScore,
       finalScore,
-      string = this,
       lString = string.toLowerCase(),
       strLength = string.length,
       lWord = word.toLowerCase(),
